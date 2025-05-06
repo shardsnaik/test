@@ -88,4 +88,4 @@ pip install -r requirements.txt
 
 
 ## 📈 Code Flow Diagram
-![AI-CASHIER Diagram](docs/Architecture.png")
+![AI-CASHIER Diagram](docs/Architecture.png)
