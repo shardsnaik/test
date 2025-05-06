@@ -88,4 +88,117 @@ pip install -r requirements.txt
 
 
 ## 📈 Code Flow Diagram
-![AI-CASHIER Diagram](docs/Architecture.png")
+
+```mermaid
+---
+config:
+  theme: redux
+  layout: dagre
+---
+flowchart TD
+ subgraph s1["Components"]
+        n8["Internal Storage"]
+        n33["API 🗨️🗨️"]
+  end
+ subgraph s2["Intent Recognition"]
+        n17["NLTK"]
+        n18["Hugging-face"]
+  end
+ subgraph s3["Reinforcement Learning"]
+        n22["Collate Action"]
+        n20["Database"]
+        n21["Preprocessing"]
+        n24["reinforcement learning"]
+        n28["Communication Link"]
+        n34(["Feedback🚀"])
+  end
+ subgraph s5["INPUT"]
+        n2["Manual Input"]
+        n1["Start"]
+        n5["Voice Input"]
+        n29["Menu File 🗃️"]
+  end
+ subgraph s6["OUTPUT"]
+        n35["Text to Speech 📤"]
+        n27["Display"]
+  end
+    B{"LLM"} --> n11["Multi Process"]
+    n1 --> n4["speech to text"]
+    n2 --> B
+    n4 --> B & n22
+    n5 L_n5_n1_0@-- Start --> n1
+    n8 <--> n4
+    n11 --> n13["Generated Output"]
+    n11 L_n11_n27_0@==> n27
+    n13 --> n22 & n35
+    n13 o--o n17
+    n21 --> n28
+    n21 === n24
+    n18 o--o n13
+    n20 --> n21
+    n28 --> B
+    n24 --> n28
+    n29 L_n29_B_0@--> B
+    n33 --> n4
+    n22 --> n34
+    n34 L_n34_n20_0@--> n20
+    n14["Stop"]
+    n19["END"]
+    n31["Anchor"]
+    n32["Anchor"]
+    n8@{ shape: internal-storage}
+    n33@{ shape: card}
+    n22@{ shape: collate}
+    n20@{ shape: db}
+    n21@{ shape: div-proc}
+    n24@{ shape: braces}
+    n28@{ shape: com-link}
+    n2@{ shape: manual-input}
+    n1@{ shape: start}
+    n5@{ icon: "gcp:speech-to-text", pos: "t", h: 60}
+    n29@{ shape: text}
+    n27@{ shape: display}
+    n11@{ shape: procs}
+    n4@{ shape: rect}
+    n14@{ shape: stop}
+    n19@{ shape: text}
+    n31@{ shape: anchor}
+    n32@{ shape: anchor}
+     n22:::Ash
+     n20:::Ash
+     n21:::Ash
+     n24:::Ash
+     n2:::Pine
+     n35:::Sky
+     n35:::Pine
+     n27:::Rose
+     B:::Aqua
+     n11:::Peach
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+    classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+    style n33 color:#424242,fill:#BBDEFB
+    style n28 fill:#FF6D00
+    style n5 fill:#000000
+    style n29 color:#000000,fill:#00C853
+    style B color:#000000
+    style s5 color:#00C853
+    style s2 fill:#FFF9C4
+    linkStyle 1 stroke:#00C853,fill:none
+    linkStyle 4 stroke:#FF6D00,fill:none
+    linkStyle 5 stroke:#00C853,fill:none
+    linkStyle 8 stroke:#2962FF,fill:none
+    linkStyle 9 stroke:#FF6D00,fill:none
+    linkStyle 21 stroke:#D50000,fill:none
+    L_n5_n1_0@{ animation: fast } 
+    L_n11_n27_0@{ animation: slow } 
+    L_n13_n35_0@{ animation: fast } 
+    L_n29_B_0@{ animation: fast } 
+    L_n34_n20_0@{ animation: slow }
+
+
+
+```
